@@ -4,7 +4,7 @@ require './lib/play'
 
 game = Play.new
 
-while !game.game_over?
+while game.board.flatten.join.strip.include?(".")
   game.tick
 end
 

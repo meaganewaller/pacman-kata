@@ -3,10 +3,10 @@ require './lib/pacman'
 
 class Play
   attr_accessor :coordinates, :board
-  def initialize
-    blank_board  = Pacman.board
-    @coordinates = [1,5]
-    @board       = Pacman.place_pacman(blank_board, @coordinates)
+  def initialize(coordinates=[1,5])
+    blank_board = Pacman.board
+    @coordinates  = coordinates
+    @board        = Pacman.place_pacman(blank_board, @coordinates)
   end
 
   def tick
@@ -19,13 +19,9 @@ class Play
       @board       = new_board
       @coordinates = next_coords
     else
-      puts "Not a valid move. Choose a different direction"
+      puts "Not a valid move. Choose a different direction."
       tick
     end
-  end
-
-  def game_over?
-    !@board.flatten.join.strip.include?(".")
   end
 
   def get_marker(direction)
