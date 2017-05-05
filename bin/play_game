@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+require './lib/play'
+
+game = Play.new
+
+while !game.game_over?
+  game.tick
+end
+
+puts "Yay! Emptied board!"
